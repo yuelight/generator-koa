@@ -1,12 +1,13 @@
 import mongoose from 'mongoose';
 import glob from 'glob';
+import { db } from './env';
 import { resolve } from 'path';
 const modelsPath = resolve(__dirname, '..', 'app', 'models', '*.js');
 
 export default class Db {
 	constructor() {
 		this.connectTime = 0;
-		this.db = 'mongodb://localhost/test';
+		this.db = db;
 	}
 
 	init() {
