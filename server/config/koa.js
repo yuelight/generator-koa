@@ -6,7 +6,7 @@ import bodyparser from 'koa-bodyparser';
 import logger from 'koa-logger';
 import chalk from 'chalk'
 
-import env from './env';
+import { base, port } from './env';
 import Db from './mongo';
 
 const app = new Koa();
@@ -39,8 +39,8 @@ app.on('error', (err, ctx) => {
 	console.error('server error', err, ctx);
 });
 
-app.listen(env.port, () => {
-	console.log(`Server is running at ${chalk.green(env.base)}`);
+app.listen(port, () => {
+	console.log(`Server is running at ${chalk.green(base)}`);
 });
 
 export default app;
